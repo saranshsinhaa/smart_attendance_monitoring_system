@@ -5,8 +5,10 @@ import styles from '@/styles/Home.module.css';
 import Navbar from 'components/shared/navbar';
 import Student from 'components/student/student';
 import { getClassData } from 'utils/services/rest';
+import { useState } from 'react';
 
 export default function Home({ list }) {
+  const [studentList, setStudentList] = useState(list.message);
   return (
     <>
       <Head>
@@ -16,35 +18,38 @@ export default function Home({ list }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      {list.message.map((el) => {
+      {list.message.map((el, i) => {
+        const [status, setStatus] = useState(el.attandance.status);
         return (
           <Student
+            index={i}
+            list={studentList}
             name={el.name}
             email={el.email}
-            status={el.attandance.status}
+            status={status}
             regNo={el.usn}
             details={el.section}
             facultyName={el.counselor_name}
             facultyEmail={el.counselor_email}
+            changeStatus={setStatus}
           />
         );
       })}
+      <div className="flex justify-center">
+        <button className="px-10 py-5 bg-blue-800 text-white text-xl font-bold rounded-full">
+          Update Attendance
+        </button>
+      </div>
     </>
   );
 }
 
 export async function getStaticProps() {
   const list = await getClassData();
-  //   console.log(res);
-  //   const list = await res.json();
 
   return {
     props: {
       list,
     },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 10, // In seconds
   };
 }

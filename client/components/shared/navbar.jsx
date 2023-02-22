@@ -34,23 +34,7 @@ const Navbar = () => {
                     className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
                     href="#"
                   >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                    href="#"
-                  >
-                    Current Classes
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                    href="#"
-                  >
-                    Previous Classes
+                    Attendance Management System
                   </a>
                 </li>
               </ul>

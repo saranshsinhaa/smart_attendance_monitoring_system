@@ -1,6 +1,10 @@
 import { RxAvatar } from 'react-icons/rx';
 
 const Student = (props) => {
+  const changeHandler = () => {
+    props.changeStatus(!props.status);
+  };
+
   return (
     <div
       className={
@@ -25,6 +29,7 @@ const Student = (props) => {
               ? 'bg-[#f4fdf1d2] px-4 py-2 rounded-full text-[#17a31ee3]'
               : 'bg-[#fdf1f1] px-4 py-2 rounded-full text-[#a31717ec]'
           }
+          onClick={changeHandler}
         >
           {props.status ? 'Present' : 'Absent'}
         </div>
