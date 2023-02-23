@@ -1,8 +1,10 @@
 import { RxAvatar } from 'react-icons/rx';
+import { updateAttendance } from 'utils/services/rest';
 
 const Student = (props) => {
   const changeHandler = () => {
     props.changeStatus(!props.status);
+    updateAttendance({ usn: props.regNo, status: !props.status });
   };
 
   return (

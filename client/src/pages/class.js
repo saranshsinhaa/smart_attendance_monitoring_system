@@ -22,6 +22,7 @@ export default function Home({ list }) {
         const [status, setStatus] = useState(el.attandance.status);
         return (
           <Student
+            key={i}
             index={i}
             list={studentList}
             name={el.name}
@@ -36,7 +37,12 @@ export default function Home({ list }) {
         );
       })}
       <div className="flex justify-center">
-        <button className="px-10 py-5 bg-blue-800 text-white text-xl font-bold rounded-full">
+        <button
+          className="px-10 py-5 bg-blue-800 text-white text-xl font-bold rounded-full"
+          onClick={() => {
+            console.log(list);
+          }}
+        >
           Update Attendance
         </button>
       </div>

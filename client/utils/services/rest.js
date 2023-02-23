@@ -6,7 +6,7 @@ const instance = axios.create({
 });
 
 const ENDPOINTS = {
-  CLASS_LIST: '/specific-event/participants/all?device=esp8266',
+  CLASS_LIST: '/specific-event/participants/all?device=esp8266-1',
   SIGNIN: '/auth/signin',
   SIGNUP: '/auth/signup',
 };
@@ -16,16 +16,21 @@ export const getClassData = async () => {
   return data;
 };
 
+export const updateAttendance = async (updateData) => {
+  console.log(updateData);
+  // const response = await instance.post(
+  //     'https://onsite-rfid-backend.onrender.com/api/auth/signin',
+  //     userData
+  //   );
+};
+
 export const login = async (userData) => {
   //   const [userData, setUserData] = useState({
   //     email: email,
   //     password: password,
   //   });
   try {
-    const response = await instance.post(
-      'https://onsite-rfid-backend.onrender.com/api/auth/signin',
-      userData
-    );
+    const response = await instance.post(ENDPOINTS.SIGNIN, userData);
     return response;
   } catch (error) {
     console.error(

@@ -3,7 +3,7 @@ const Navbar = () => {
     <>
       <nav
         id="header"
-        className="w-full z-30 py-1 bg-white shadow-lg border-b border-blue-400 "
+        className="w-full z-30 py-1 bg-blue-800 shadow-lg border-b border-blue-400 "
       >
         <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
           <label
@@ -11,7 +11,7 @@ const Navbar = () => {
             className="cursor-pointer md:hidden block"
           >
             <svg
-              className="fill-current text-blue-600"
+              className="fill-current text-white"
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
@@ -28,11 +28,11 @@ const Navbar = () => {
             id="menu"
           >
             <nav>
-              <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+              <ul className="md:flex items-center justify-between text-base text-white font-bold pt-4 md:pt-0">
                 <li>
                   <a
                     className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                    href="#"
+                    href="/"
                   >
                     Attendance Management System
                   </a>
@@ -46,9 +46,14 @@ const Navbar = () => {
             id="nav-content"
           >
             <div className="auth flex items-center w-full md:w-full">
-              <button className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
-                Sign in
-              </button>
+              <a href="/signin">
+                <button
+                  className="bg-transparent  p-2 rounded 
+              text-white border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700 border-2"
+                >
+                  Sign in
+                </button>
+              </a>
             </div>
           </div>
         </div>
