@@ -9,6 +9,7 @@ const ENDPOINTS = {
   CLASS_LIST: '/specific-event/participants/all?device=esp8266-1',
   SIGNIN: '/auth/signin',
   SIGNUP: '/auth/signup',
+  UPDATE: '/specific-event/participants/specific/update?device=esp8266-1',
 };
 
 export const getClassData = async () => {
@@ -18,10 +19,10 @@ export const getClassData = async () => {
 
 export const updateAttendance = async (updateData) => {
   console.log(updateData);
-  // const response = await instance.post(
-  //     'https://onsite-rfid-backend.onrender.com/api/auth/signin',
-  //     userData
-  //   );
+  await instance.patch(
+    `https://onsite-rfid-backend.onrender.com/api/specific-event/participants/specific/update?device=esp8266-1`,
+    updateData
+  );
 };
 
 export const login = async (userData) => {
