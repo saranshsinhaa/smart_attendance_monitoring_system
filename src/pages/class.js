@@ -11,7 +11,7 @@ export default function Home({ list }) {
   const [studentList, setStudentList] = useState(list.message);
 
   const StudentItems = ({ el }) => {
-    const [status, setStatus] = useState(el.attandance.status);
+    const [status, setStatus] = useState(el.attendance.status);
     return (
       <Student
         key={el.regNo}
