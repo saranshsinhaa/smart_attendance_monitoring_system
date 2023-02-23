@@ -9,6 +9,24 @@ import { useState } from 'react';
 
 export default function Home({ list }) {
   const [studentList, setStudentList] = useState(list.message);
+
+  const StudentItems = ({ el }) => {
+    const [status, setStatus] = useState(el.attandance.status);
+    return (
+      <Student
+        key={el.regNo}
+        list={studentList}
+        name={el.name}
+        email={el.email}
+        status={status}
+        regNo={el.usn}
+        details={el.section}
+        facultyName={el.counselor_name}
+        facultyEmail={el.counselor_email}
+        changeStatus={setStatus}
+      />
+    );
+  };
   return (
     <>
       <Head>
@@ -19,22 +37,7 @@ export default function Home({ list }) {
       </Head>
       <Navbar />
       {list.message.map((el, i) => {
-        const [status, setStatus] = useState(el.attandance.status);
-        return (
-          <Student
-            key={i}
-            index={i}
-            list={studentList}
-            name={el.name}
-            email={el.email}
-            status={status}
-            regNo={el.usn}
-            details={el.section}
-            facultyName={el.counselor_name}
-            facultyEmail={el.counselor_email}
-            changeStatus={setStatus}
-          />
-        );
+        return <StudentItems el={el} key={i} />;
       })}
       <div className="flex justify-center">
         <button

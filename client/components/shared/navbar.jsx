@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Navbar = () => {
   return (
     <>
@@ -30,12 +32,12 @@ const Navbar = () => {
             <nav>
               <ul className="md:flex items-center justify-between text-base text-white font-bold pt-4 md:pt-0">
                 <li>
-                  <a
+                  <Link
                     className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
                     href="/"
                   >
                     Attendance Management System
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -46,14 +48,14 @@ const Navbar = () => {
             id="nav-content"
           >
             <div className="auth flex items-center w-full md:w-full">
-              <a href="/signin">
+              <Link href="/signin">
                 <button
                   className="bg-transparent  p-2 rounded 
               text-white border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700 border-2"
                 >
                   Sign in
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
